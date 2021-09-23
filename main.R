@@ -9,6 +9,7 @@ res
 res3 <- rbind(res[1, ], c(3, 5))
 res3
 results <- matrix(c(12,34,54,56,54,67,53,68), 2,4)
+results_by_row <- matrix(c(12,34,54,56,54,67,53,68), 2,4, byrow = TRUE)
 # results <- matrix(c(12,34,54,56,54,67,53,68), c(2,4)) # same thing
 # results <- matrix(c(12,34,54,56,54,67,53,68), nrow = 2, ncol = 4) # same thing
 results
