@@ -23,7 +23,7 @@ which(colnames(my_dataset) != "site")
 
 # conditional subsetting
 # always takes 2 parameters X & Y such as [X, Y]
-my_dataset$pH > 7                               # creates a vector with pH > 7
+my_dataset$pH > 7                               # creates a vector with pH > 7 such that TRUE, FALSE, TRUE, TRUE, TRUE
 my_dataset[my_dataset$pH > 7, ]                 #
 my_dataset[c(TRUE, FALSE, TRUE, TRUE, TRUE), ]  # does the same thing as following
 my_dataset[my_dataset$pH > 7, "site"]           #
@@ -31,3 +31,24 @@ my_dataset[my_dataset$pH > 7, "site"]           #
 my_dataset[my_dataset$seasons == "Summer", ]
 my_dataset[my_dataset$seasons == "Summer", c("site", "pH")]
 my_dataset[my_dataset$seasons == "Summer", which(colnames(my_dataset) != "seasons")]
+
+# attach function
+my_dataset[pH >7, ]
+attach(my_dataset)
+my_dataset[pH > 7,]
+detach(my_dataset)
+seasons
+
+# subset function
+my_dataset$seasons == "Summer" | my_dataset$seasons == "Winter"
+subset(my_dataset, pH >8)
+subset(my_dataset, seasons == "Summer")
+subset(my_dataset, seasons == "Summer", select = c(seasons, pH))
+
+my_dataset[my_dataset$seasons == "Summer", "pH"] <- my_dataset[my_dataset$seasons == "Summer", "pH"] + 1
+my_dataset
+my_dataset[my_dataset$seasons == "Summer", "pH"] <- my_dataset[my_dataset$seasons == "Summer", "pH"] - 1
+dim(my_dataset)
+names(my_dataset)
+colnames(my_dataset)
+row.names(my_dataset)
